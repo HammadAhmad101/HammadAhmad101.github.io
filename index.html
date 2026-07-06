@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hammad Ahmad Warsi — YouTube Scriptwriter</title>
+  <meta name="description" content="Hammad Ahmad Warsi is a YouTube scriptwriter and researcher specializing in paranormal, UFO, and conspiracy content for faceless channels. Footage-grounded scripts, built for retention." />
+
+  <!--
+  ============================================================
+  SINGLE-FILE PORTFOLIO — everything lives in this one file.
+  (Styles are in the <style> block below, the tiny script is at
+  the bottom. Nothing external can break.)
+
+  FOLDER STRUCTURE:
+  index.html                        ← this file (all content + styles)
+  assets/Hammad_Ahmad_Warsi_CV.pdf  ← the downloadable CV
+
+  HOW TO EDIT:
+  - Each section is marked with a ==== banner comment.
+  - To add a case study, copy a whole <article class="case"> block.
+  - Theme colors are CSS variables at the top of the <style> block.
+
+  DEPLOY: upload index.html + the assets folder to GitHub Pages,
+  Netlify, or Vercel (index.html at the repo root). See README.
+  ============================================================
+  -->
+
+  <!-- Fonts: Spectral (serif) + IBM Plex Mono (labels) — free, via Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;1,400;1,500&family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ============================================================
+       THEME — edit these variables to restyle the whole site
+       ============================================================ */
+    :root {
+      --ink:    #201c28;   /* main text */
+      --paper:  #fcfbf9;   /* page background */
+      --accent: #6633cc;   /* THE accent (violet) */
+      --accent-soft: #f0eafb; /* pale violet wash for highlights */
+      --muted:  #635e6e;   /* secondary text */
+      --line:   #e6e2ee;   /* hairlines */
+
+      --font-display: "Spectral", Georgia, serif;
+      --font-body: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Consolas, monospace;
+
+      --rail: 15rem;       /* width of the vertical sidebar nav */
+      --content: 42rem;    /* max content width */
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-body);
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      color: var(--ink);
+      background: var(--paper);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a { color: var(--accent); text-decoration: none; }
+    a:hover, a:focus-visible { text-decoration: underline; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+
+    /* ============================================================
+       VERTICAL SIDEBAR NAV (desktop) → sticky top bar (mobile)
+       ============================================================ */
+    .nav {
+      position: fixed;
+      top: 0; left: 0; bottom: 0;
+      width: var(--rail);
+      padding: 2.5rem 1.75rem;
+      border-right: 1px solid var(--line);
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      background: var(--paper);
+      z-index: 10;
+    }
+
+    .nav-name {
+      font-family: var(--font-display);
+      font-weight: 600;
+      font-size: 1.15rem;
+      color: var(--ink);
+      line-height: 1.3;
+    }
+    .nav-name:hover { text-decoration: none; color: var(--accent); }
+    .nav-name span { display: block; font-family: var(--font-mono); font-weight: 400; font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-top: 0.35rem; }
+
+    .nav-links { display: flex; flex-direction: column; gap: 0.65rem; }
+
+    .nav-links a {
+      font-family: var(--font-mono);
+      font-size: 0.85rem;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+      transition: color 120ms ease, transform 120ms ease;
+    }
+    /* the little "cursor" that appears before a link on hover */
+    .nav-links a::before { content: "> "; color: var(--accent); opacity: 0; }
+    .nav-links a:hover, .nav-links a:focus-visible {
+      color: var(--accent);
+      text-decoration: none;
+      transform: translateX(4px);
+    }
+    .nav-links a:hover::before, .nav-links a:focus-visible::before { opacity: 1; }
+
+    .nav .btn { margin-top: auto; text-align: center; }
+
+    /* ============================================================
+       BUTTONS
+       ============================================================ */
+    .btn {
+      display: inline-block;
+      padding: 0.7rem 1.35rem;
+      background: var(--accent);
+      color: #fff;
+      border-radius: 999px;   /* fun: pill buttons */
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: transform 120ms ease, box-shadow 120ms ease;
+    }
+    .btn:hover, .btn:focus-visible {
+      text-decoration: none;
+      transform: translateY(-2px) rotate(-0.5deg);
+      box-shadow: 0 6px 18px rgba(102, 51, 204, 0.3);
+    }
+    .btn-ghost { background: transparent; color: var(--accent); border: 1.5px solid var(--accent); }
+
+    /* ============================================================
+       LAYOUT — content sits to the right of the rail
+       ============================================================ */
+    main, .footer { margin-left: var(--rail); }
+    .wrap { max-width: var(--content); margin: 0 auto; padding: 0 1.5rem; }
+
+    /* ============================================================
+       SLUG LINES — the script-format section labels
+       ============================================================ */
+    .slug {
+      font-family: var(--font-mono);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1rem;
+    }
+
+    /* ============================================================
+       HERO
+       ============================================================ */
+    .hero { padding-top: clamp(4rem, 14vh, 8rem); padding-bottom: clamp(3rem, 9vh, 5rem); position: relative; }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-weight: 500;
+      font-size: clamp(2rem, 5.5vw, 3.2rem);
+      line-height: 1.16;
+      letter-spacing: -0.01em;
+      max-width: 19ch;
+    }
+
+    /* fun: highlighter swipe on the key phrase */
+    .hero h1 em {
+      font-style: italic;
+      color: var(--ink);
+      background: linear-gradient(transparent 58%, var(--accent-soft) 58%);
+      padding: 0 0.1em;
+    }
+
+    .hero-sub { margin-top: 1.4rem; font-size: 1.1rem; color: var(--muted); max-width: 52ch; }
+    .hero-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 0.75rem; }
+
+    /* fun: the little UFO that drifts above the headline */
+    .ufo {
+      position: absolute;
+      top: clamp(1.2rem, 5vh, 3rem);
+      right: 8%;
+      width: 74px;
+      animation: hover-drift 5s ease-in-out infinite;
+      user-select: none;
+      pointer-events: none;
+    }
+    @keyframes hover-drift {
+      0%, 100% { transform: translateY(0) rotate(-4deg); }
+      50%      { transform: translateY(-12px) rotate(3deg); }
+    }
+
+    /* ============================================================
+       SECTIONS
+       ============================================================ */
+    .section { padding-top: 4.5rem; padding-bottom: 1rem; }
+    .section h2 { font-family: var(--font-display); font-weight: 500; font-size: clamp(1.5rem, 4vw, 2rem); margin-bottom: 2rem; }
+
+    /* ============================================================
+       CASE STUDIES — styled like numbered script entries
+       ============================================================ */
+    .case {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 1.75rem 1.75rem 1.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      background: #fff;
+      transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+    }
+    .case:hover {
+      transform: translateY(-3px) rotate(-0.3deg);
+      border-color: var(--accent);
+      box-shadow: 0 10px 30px rgba(102, 51, 204, 0.1);
+    }
+
+    /* the ENTRY 01 tab poking out of the card's top edge */
+    .entry-tag {
+      position: absolute;
+      top: -0.7rem;
+      left: 1.5rem;
+      font-family: var(--font-mono);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.16em;
+      background: var(--accent);
+      color: #fff;
+      padding: 0.15rem 0.65rem;
+      border-radius: 999px;
+    }
+
+    .case h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.28rem; line-height: 1.3; margin: 0.35rem 0 1.1rem; }
+    .case dl div { margin-bottom: 0.9rem; }
+
+    /* "The brief / The work / The result" — italic serif, per request */
+    .case dt {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-weight: 500;
+      font-size: 1.02rem;
+      color: var(--accent);
+      margin-bottom: 0.1rem;
+    }
+    .case dd { color: var(--ink); }
+
+    /* ============================================================
+       ABOUT
+       ============================================================ */
+    .about-text { font-family: var(--font-display); font-size: 1.15rem; line-height: 1.7; }
+    .about-text p + p { margin-top: 1rem; }
+
+    /* ============================================================
+       SKILLS — vertical bullet lists inside cards
+       ============================================================ */
+    .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr)); gap: 1.25rem; }
+
+    .skill-group { border: 1px solid var(--line); border-radius: 12px; padding: 1.4rem 1.5rem; background: #fff; }
+    .skill-group h3 {
+      font-family: var(--font-mono);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 0.75rem;
+    }
+
+    .skill-group ul { list-style: none; }
+    .skill-group li {
+      position: relative;
+      padding-left: 1.15rem;
+      margin-bottom: 0.4rem;
+      color: var(--muted);
+      font-size: 0.97rem;
+    }
+    /* custom violet bullet */
+    .skill-group li::before {
+      content: "";
+      position: absolute;
+      left: 0; top: 0.62em;
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    /* ============================================================
+       CONTACT + FOOTER
+       ============================================================ */
+    .contact-lead { color: var(--muted); max-width: 48ch; margin-bottom: 1.75rem; }
+    .contact-actions { display: flex; flex-wrap: wrap; gap: 0.75rem; padding-bottom: 2.5rem; }
+
+    .footer { border-top: 1px solid var(--line); }
+    .footer .wrap { padding-top: 2rem; padding-bottom: 3rem; font-size: 0.9rem; color: var(--muted); }
+    .footer p + p { margin-top: 0.4rem; }
+    .footer-note { font-size: 0.8rem; }
+
+    /* ============================================================
+       SCROLL FADE-INS (JS adds .visible)
+       ============================================================ */
+    .reveal { opacity: 0; transform: translateY(14px); transition: opacity 500ms ease, transform 500ms ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ============================================================
+       MOBILE — the rail becomes a sticky top bar
+       ============================================================ */
+    @media (max-width: 760px) {
+      .nav {
+        position: sticky;
+        width: auto;
+        bottom: auto;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+        padding: 0.8rem 1.1rem;
+        border-right: none;
+        border-bottom: 1px solid var(--line);
+      }
+      .nav-name span { display: none; }
+      .nav-links {
+        flex-direction: row;
+        gap: 0.9rem;
+        margin-left: auto;
+        overflow-x: auto;         /* links scroll, never hide */
+        scrollbar-width: none;
+      }
+      .nav-links::-webkit-scrollbar { display: none; }
+      .nav-links a::before { display: none; }
+      .nav .btn { margin-top: 0; padding: 0.4rem 0.85rem; font-size: 0.82rem; white-space: nowrap; }
+      main, .footer { margin-left: 0; }
+      .ufo { width: 54px; right: 4%; }
+    }
+
+    /* Respect reduced motion */
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .btn, .case, .nav-links a { transition: none; }
+      .ufo { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ==================== VERTICAL NAVIGATION ==================== -->
+  <header class="nav">
+    <a class="nav-name" href="#top">Hammad Ahmad Warsi
+      <span>Scriptwriter · Researcher</span>
+    </a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="mailto:hahmadwarsi@gmail.com">Email me</a>
+  </header>
+
+  <main id="top">
+
+    <!-- ==================== HERO ==================== -->
+    <section class="hero">
+      <div class="wrap">
+        <!-- the little UFO (decorative) -->
+        <svg class="ufo" viewBox="0 0 100 60" aria-hidden="true">
+          <ellipse cx="50" cy="38" rx="40" ry="12" fill="#6633cc"/>
+          <ellipse cx="50" cy="34" rx="40" ry="12" fill="#8a5ce0"/>
+          <ellipse cx="50" cy="24" rx="18" ry="13" fill="#d9ccf5"/>
+          <circle cx="30" cy="36" r="3" fill="#f0eafb"/>
+          <circle cx="50" cy="40" r="3" fill="#f0eafb"/>
+          <circle cx="70" cy="36" r="3" fill="#f0eafb"/>
+        </svg>
+
+        <p class="slug">FADE IN:</p>
+        <h1>Scripts that keep <em>strange stories</em> — and viewers — alive.</h1>
+        <p class="hero-sub">
+          I'm Hammad Ahmad Warsi, a YouTube scriptwriter and researcher. I turn raw
+          footage — UFO sightings, paranormal encounters, police bodycam mysteries —
+          into narration that's grounded in what's actually on screen and built to
+          hold attention.
+        </p>
+        <div class="hero-actions">
+          <a class="btn" href="#work">See my work</a>
+          <a class="btn btn-ghost" href="assets/Hammad_Ahmad_Warsi_CV.pdf" download>Download CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== WORK / CASE STUDIES ==================== -->
+    <section class="section" id="work">
+      <div class="wrap">
+        <p class="slug">INT. THE WORK</p>
+        <h2>Selected work</h2>
+
+        <!-- CASE STUDY 1 — copy a whole <article> to add another -->
+        <article class="case reveal">
+          <span class="entry-tag">Entry 01</span>
+          <h3>Footage-grounded scripting for five faceless channels</h3>
+          <dl>
+            <div><dt>The brief</dt>
+            <dd>Paranormal compilation channels live or die on credibility. Scripts
+            written without watching the footage drift into generic filler — and
+            viewers notice when the narration doesn't match the screen.</dd></div>
+            <div><dt>The work</dt>
+            <dd>I built a video-analysis workflow with Claude that extracts frames from
+            source footage, so every entry I write describes what's actually visible —
+            then layered each channel's house style on top: entry length, tone,
+            rotating ending types, banned-word lists.</dd></div>
+            <div><dt>The result</dt>
+            <dd>Consistent, on-brand scripts across five channels — including Paranormal
+            Road Rider, Uncharted Travel, and The Abandoned Camper — with narration
+            viewers can trust against the footage.</dd></div>
+          </dl>
+        </article>
+
+        <!-- CASE STUDY 2 -->
+        <article class="case reveal">
+          <span class="entry-tag">Entry 02</span>
+          <h3>High-volume production without the drift</h3>
+          <dl>
+            <div><dt>The brief</dt>
+            <dd>Compilation videos need 4,500–5,000-word scripts — dozens of
+            self-contained entries per video — delivered fast, without the tone
+            flattening into copy-paste sameness by entry twenty.</dd></div>
+            <div><dt>The work</dt>
+            <dd>I write in disciplined batches of 30–45 entries, each 90–100 words with
+            its own hook, unique opening, and one of five rotating ending types —
+            never two of the same kind in a row.</dd></div>
+            <div><dt>The result</dt>
+            <dd>Full-length scripts on schedule, entry after entry, with pacing and
+            variety engineered in rather than left to chance.</dd></div>
+          </dl>
+        </article>
+
+        <!-- CASE STUDY 3 -->
+        <article class="case reveal">
+          <span class="entry-tag">Entry 03</span>
+          <h3>A retention framework for underperforming scripts</h3>
+          <dl>
+            <div><dt>The brief</dt>
+            <dd>Some scripts looked fine on the page but lost viewers mid-video. The
+            channel needed to know why — structurally, not anecdotally.</dd></div>
+            <div><dt>The work</dt>
+            <dd>I diagnosed the structural weak points and built a repeatable framework:
+            intensity peaks, entry sequencing, re-engagement line rotation, and
+            ending-type variety — then wrote it up as a standard operating procedure
+            the whole channel can follow.</dd></div>
+            <div><dt>The result</dt>
+            <dd>A house playbook that turns retention from guesswork into checklist —
+            applied to every script since.</dd></div>
+          </dl>
+        </article>
+
+        <!-- CASE STUDY 4 -->
+        <article class="case reveal">
+          <span class="entry-tag">Entry 04</span>
+          <h3>SEO copy that clients could measure</h3>
+          <dl>
+            <div><dt>The brief</dt>
+            <dd>UK-based clients, including Twicsy UK, needed website copy and blog
+            content that ranked — not just filled pages.</dd></div>
+            <div><dt>The work</dt>
+            <dd>At Media Foundation 360 I ran keyword research, wrote SEO-optimized
+            copy, and briefed leadership directly on content direction and
+            progress.</dd></div>
+            <div><dt>The result</dt>
+            <dd>Seven months of shipped, search-driven content for international
+            clients — and the research habits I still bring to every script.</dd></div>
+          </dl>
+        </article>
+      </div>
+    </section>
+
+    <!-- ==================== ABOUT ==================== -->
+    <section class="section" id="about">
+      <div class="wrap">
+        <p class="slug">INT. ABOUT</p>
+        <h2>About</h2>
+        <div class="about-text reveal">
+          <p>
+            I've always been drawn to the stories that sit just outside the
+            streetlight — the dashcam clip nobody can explain, the hallway that
+            shouldn't have footsteps in it. Writing for faceless YouTube channels
+            lets me take that fascination seriously: my job is to look at strange
+            footage carefully and tell you what happened without breaking the spell.
+          </p>
+          <p>
+            Off the clock, I read Urdu classical literature and philosophy of mind —
+            which sounds unrelated until you've tried to narrate a ghost story with
+            restraint. I graduated from the University of the Punjab in 2025
+            (BSc Digital Media &amp; Communication, 3.80 CGPA), and I build my own AI
+            workflows — Claude, APIs, automation — so the craft scales without the
+            writing going stale.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== SKILLS ==================== -->
+    <section class="section" id="skills">
+      <div class="wrap">
+        <p class="slug">INT. SKILLS</p>
+        <h2>What I work with</h2>
+        <div class="skills-grid reveal">
+
+          <div class="skill-group">
+            <h3>Scriptwriting &amp; story</h3>
+            <ul>
+              <li>Long-form YouTube scripts</li>
+              <li>Visual storytelling from footage</li>
+              <li>Narrative structure &amp; pacing</li>
+              <li>Retention &amp; hook design</li>
+              <li>Rephrasing (SWAP) workflows</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>AI-assisted workflows</h3>
+            <ul>
+              <li>Claude, ChatGPT, Gemini, Grok</li>
+              <li>Anthropic API</li>
+              <li>Video-analysis pipelines</li>
+              <li>Prompt &amp; style-guide systems</li>
+              <li>Make.com automation</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Research</h3>
+            <ul>
+              <li>Fact-checking (ISPR-trained)</li>
+              <li>Keyword &amp; SEO research</li>
+              <li>Source verification</li>
+              <li>Peace journalism &amp; civic reporting training</li>
+            </ul>
+          </div>
+
+          <div class="skill-group">
+            <h3>Tools &amp; credentials</h3>
+            <ul>
+              <li>MS Office · Canva · CapCut</li>
+              <li>AI Fluency, Claude 101 &amp; Claude Agent Skills (Anthropic Academy)</li>
+              <li>AI for All Backgrounds (Innovista)</li>
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================== CONTACT ==================== -->
+    <section class="section" id="contact">
+      <div class="wrap">
+        <p class="slug">FADE OUT.</p>
+        <h2>Let's talk</h2>
+        <p class="contact-lead reveal">
+          Running a channel that needs scripts viewers actually finish? Hiring a
+          writer who treats footage as the source of truth? My inbox is open.
+        </p>
+        <div class="contact-actions reveal">
+          <a class="btn" href="mailto:hahmadwarsi@gmail.com">hahmadwarsi@gmail.com</a>
+          <a class="btn btn-ghost" href="assets/Hammad_Ahmad_Warsi_CV.pdf" download>Download CV (PDF)</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==================== FOOTER ==================== -->
+  <footer class="footer">
+    <div class="wrap">
+      <p>Hammad Ahmad Warsi · Lahore, Pakistan · <a href="tel:+923044573389">0304&nbsp;4573389</a></p>
+      <p class="footer-links">
+        <a href="mailto:hahmadwarsi@gmail.com" rel="me">Email</a> ·
+        <a href="tel:+923044573389" rel="me">Phone</a>
+      </p>
+      <p class="footer-note">© <span id="year"></span> Hammad Ahmad Warsi. Built by hand — no trackers, no cookies.</p>
+    </div>
+  </footer>
+
+  <script>
+    /* Scroll fade-ins + footer year. Site works fine with JS disabled. */
+    (function () {
+      "use strict";
+      var reveals = document.querySelectorAll(".reveal");
+      var reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      if (!("IntersectionObserver" in window) || reduceMotion) {
+        reveals.forEach(function (el) { el.classList.add("visible"); });
+      } else {
+        var observer = new IntersectionObserver(function (entries) {
+          entries.forEach(function (entry) {
+            if (entry.isIntersecting) {
+              entry.target.classList.add("visible");
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.12 });
+        reveals.forEach(function (el) { observer.observe(el); });
+      }
+
+      var yearEl = document.getElementById("year");
+      if (yearEl) yearEl.textContent = new Date().getFullYear();
+    })();
+  </script>
+</body>
+</html>
